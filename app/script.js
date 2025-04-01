@@ -1,4 +1,3 @@
-console.log('ha');
 function parseBodyText(bodyText) {
   const parser = new DOMParser();
   return parser.parseFromString(bodyText, 'text/html').querySelector();
@@ -289,6 +288,47 @@ const main = new DOMParser().parseFromString(`<body>
 </body>
 `, 'text/html').querySelector('main');
 const sections = main.querySelectorAll(':scope > div');
-console.log(sections);
-// console.log(sections);
-// console.log(sections.length);
+let row = [];
+sections.forEach((section) => {
+  row.push('|section-start|');
+  [...section.children].forEach((node) => {
+    row.push(node);
+  });
+  row.push('|section-end|');
+});
+console.log(row);
+function createTag(tag, attributes, html, options = {}) {
+  const el = document.createElement(tag);
+  if (html) {
+    if (html instanceof HTMLElement
+      || html instanceof SVGElement
+      || html instanceof DocumentFragment) {
+      el.append(html);
+    } else if (Array.isArray(html)) {
+      el.append(...html);
+    } else {
+      el.insertAdjacentHTML('beforeend', html);
+    }
+  }
+  if (attributes) {
+    Object.entries(attributes).forEach(([key, val]) => {
+      el.setAttribute(key, val);
+    });
+  }
+  options.parent?.append(el);
+  return el;
+}
+
+row = createTag('div', { class: 'row' });
+
+sections.forEach((section) => {
+  row.append(createTag('div', { class: 'section-start' }, '|section-start|'));
+  [...section.children].forEach((node) => {
+    row.append(createTag('div', { class: 'node-wrapper' }, node));
+  });
+  row.append(createTag('div', { class: 'section-end' }, '|section-end|'));
+});
+document.body.append(row);
+
+
+// dom: row.html

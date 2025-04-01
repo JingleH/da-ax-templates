@@ -1,0 +1,40 @@
+[
+  {
+    "path": "/jingleh/da-ax-templates/demo.html",
+    "name": "demo",
+    "ext": "html",
+    "lastModified": 1743202398675
+  },
+  {
+    "path": "/jingleh/da-ax-templates/demo2.html",
+    "name": "demo2",
+    "ext": "html",
+    "lastModified": 1743206835360
+  },
+  { "path": "/jingleh/da-ax-templates/docs", "name": "docs" },
+  {
+    "path": "/jingleh/da-ax-templates/footer.html",
+    "name": "footer",
+    "ext": "html",
+    "lastModified": 1743201515691
+  },
+  {
+    "path": "/jingleh/da-ax-templates/nav.html",
+    "name": "nav",
+    "ext": "html",
+    "lastModified": 1743201515706
+  },
+  {
+    "path": "/jingleh/da-ax-templates/placeholders.json",
+    "name": "placeholders",
+    "ext": "json",
+    "lastModified": 1743201515694
+  },
+  { "path": "/jingleh/da-ax-templates/templates", "name": "templates" },
+  {
+    "path": "/jingleh/da-ax-templates/templates.json",
+    "name": "templates",
+    "ext": "json",
+    "lastModified": 1743208499108
+  }
+]

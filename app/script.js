@@ -60,7 +60,8 @@ function body2Row({ text, path }) {
   const body = parseBodyText(text);
   const main = body.querySelector('main');
   const sections = main.querySelectorAll(':scope > div');
-  const row = createTag('div', { class: 'row' }, createTag('div', { class: 'path' }, path));
+  const editorPath = `https://da.live/edit#${path}`;
+  const row = createTag('div', { class: 'row' }, createTag('div', { class: 'path' }, createTag('a', { href: editorPath, class: 'editor-link', target: '_blank' }, path)));
   sections.forEach((section, i) => {
     row.append(createTag('div', { class: 'node-wrapper section-start' }, `section-${i + 1}-->`));
     [...section.children].forEach((node) => {

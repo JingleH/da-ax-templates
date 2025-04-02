@@ -81,8 +81,26 @@ function body2Row({ text, path }) {
 function main() {
   const bodies = mockBodies();
   const rows = bodies.map((body) => body2Row(body));
+  const main = document.body.querySelector('main');
+  const header = document.body.querySelector('header');
 
-  document.body.append(...rows);
+  main.append(...rows);
+
+  const filterInput = header.querySelector('input.filter');
+  const filterButton = header.querySelector('button.filter');
+  filterButton.addEventListener('click', () => {
+    const filterValue = filterInput.value.trim();
+    if (!filterValue) return;
+    const regex = new RegExp(filterInput.value);
+    rows.forEach((row) => {
+      if (!regex.exec(row.querySelector('.path').textContent)) {
+        row.classList.add('hide');
+      } else {
+        row.classList.remove('hide');
+      }
+    });
+    filterInput.value;
+  });
 }
 
 main();

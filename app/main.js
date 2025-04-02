@@ -20,7 +20,7 @@ async function main() {
     const docContent = await Promise.all(reqs);
     const data = srcs.map((src, index) => ({ src, content: docContent[index] }));
     data.sort((d1, d2) => d1.src.localeCompare(d2.src));
-    data.forEach((doc, index) => {
+    data.forEach((doc) => {
       console.log(doc.src, doc.content);
     });
   } catch (e) {

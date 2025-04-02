@@ -1,10 +1,21 @@
 body {
   font-family: 'adobe-clean', 'Adobe Clean', 'Trebuchet MS', sans-serif;
 }
+
+header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
 .row {
   display: flex;
   gap: 20px;
   padding-bottom: 20px;
+}
+
+.row.hide {
+  display: none;
 }
 
 .row .path {
@@ -20,6 +31,7 @@ body {
   overflow: auto;
   flex-shrink: 0;
   text-align: center;
+  scrollbar-width: thin;
 }
 
 .section-start {

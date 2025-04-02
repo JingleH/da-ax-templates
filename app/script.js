@@ -1,308 +1,18 @@
+import { mockBodies } from './mockBodies.js';
+
 function parseBodyText(bodyText) {
   const parser = new DOMParser();
-  return parser.parseFromString(bodyText, 'text/html').querySelector();
+  return parser.parseFromString(bodyText, 'text/html');
 }
 
-const main = new DOMParser().parseFromString(`<body>
-  <header></header>
-  <main>
-    <div>
-      <p>some raw content at the top</p>
-      <div class="columns">
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://content.da.live/jingleh/da-ax-templates/templates/flyer-wp692684263864.png
-                " />
-              <source
-                srcset="
-                  https://content.da.live/jingleh/da-ax-templates/templates/flyer-wp692684263864.png
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://content.da.live/jingleh/da-ax-templates/templates/flyer-wp692684263864.png"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div><p>this is the marquee</p></div>
-        </div>
-      </div>
-      <p>raw content before end of first section</p>
-    </div>
-    <div>
-      <p>raw content starting at the top of the second section</p>
-      <div class="cards">
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_16582eee85490fbfe6b27c6a92724a81646c2e649.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_16582eee85490fbfe6b27c6a92724a81646c2e649.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_16582eee85490fbfe6b27c6a92724a81646c2e649.jpeg"
-                alt="A fast-moving Tunnel"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Unmatched speed</strong></p>
-            <p>Helix is the fastest way to publish, create, and serve websites.</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_17a5ca5faf60fa6486a1476fce82a3aa606000c81.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_17a5ca5faf60fa6486a1476fce82a3aa606000c81.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_17a5ca5faf60fa6486a1476fce82a3aa606000c81.jpeg"
-                alt="An iceberg"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Content at scale</strong></p>
-            <p>Helix allows you to publish more content in shorter time with smaller teams</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_162cf9431ac2dfd17fe7bf4420525bbffb9d0ccfe.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_162cf9431ac2dfd17fe7bf4420525bbffb9d0ccfe.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_162cf9431ac2dfd17fe7bf4420525bbffb9d0ccfe.jpeg"
-                alt="Doors with light in the dark"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Uncertainty eliminated</strong></p>
-            <p>
-              Preview content at 100% fidelity, get predictable content velocity, and shorten
-              project durations
-            </p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_136fdd3174ff44787179448cc2e0264af1b02ade9.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_136fdd3174ff44787179448cc2e0264af1b02ade9.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_136fdd3174ff44787179448cc2e0264af1b02ade9.jpeg"
-                alt="A group of people around a Table"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Widen the talent pool</strong></p>
-            <p>Authors on Helix use Microsoft Word, Excel or Google Docs and need no training</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_1cae8484004513f76c6bf5860375bc020d099a6d6.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_1cae8484004513f76c6bf5860375bc020d099a6d6.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_1cae8484004513f76c6bf5860375bc020d099a6d6.jpeg"
-                alt="HTML code in a code editor"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>The low-code way to developer productivity</strong></p>
-            <p>
-              Say goodbye to complex APIs spanning multiple languages. Anyone with a little bit of
-              HTML, CSS, and JS can build a site on Project Helix.
-            </p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_11381226cb58caf1f0792ea27abebbc8569b00aeb.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_11381226cb58caf1f0792ea27abebbc8569b00aeb.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_11381226cb58caf1f0792ea27abebbc8569b00aeb.jpeg"
-                alt="A rocket and a headless suit"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Headless is here</strong></p>
-            <p>
-              Go directly from Microsoft Excel or Google Sheets to the web in mere seconds. Sanitize
-              and collect form data at extreme scale with Project Helix Forms.
-            </p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_18fadeb136e84a2efe384b782e8aea6e92de4fc13.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_18fadeb136e84a2efe384b782e8aea6e92de4fc13.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_18fadeb136e84a2efe384b782e8aea6e92de4fc13.jpeg"
-                alt="A dial with a hand on it"
-                loading="lazy"
-            /></picture>
-          </div>
-          <div>
-            <p><strong>Peak performance</strong></p>
-            <p>
-              Use Project Helix's serverless architecture to meet any traffic need. Use Project
-              Helix's PageSpeed Insights Github action to evaluate every Pull-Request for Lighthouse
-              Score.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="section-metadata">
-        <div>
-          <div><p>style</p></div>
-          <div><p>m-spacing</p></div>
-        </div>
-        <div>
-          <div><p>background</p></div>
-          <div><p>/</p></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="metadata">
-        <div>
-          <div><p>Title</p></div>
-          <div><p>Home | Helix Project Boilerplate</p></div>
-        </div>
-        <div>
-          <div><p>Image</p></div>
-          <div>
-            <picture
-              ><source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_1dc0a2d290d791a050feb1e159746f52db392775a.jpeg
-                " />
-              <source
-                srcset="
-                  https://main--aem-block-collection--adobe.hlx.page/media_1dc0a2d290d791a050feb1e159746f52db392775a.jpeg
-                "
-                media="(min-width: 600px)" />
-              <img
-                src="https://main--aem-block-collection--adobe.hlx.page/media_1dc0a2d290d791a050feb1e159746f52db392775a.jpeg"
-                loading="lazy"
-            /></picture>
-          </div>
-        </div>
-        <div>
-          <div><p>Description</p></div>
-          <div>
-            <p>Use this template repository as the starting point for new Helix projects.</p>
-          </div>
-        </div>
-        <div>
-          <div><p>template</p></div>
-          <div></div>
-        </div>
-        <div>
-          <div></div>
-          <div><p>/</p></div>
-        </div>
-        <div>
-          <div><p>experiment</p></div>
-          <div><p>hello-world</p></div>
-        </div>
-        <div>
-          <div><p>experiment-variants</p></div>
-          <div>
-            <p>https://main--da-block-collection--aemsites.hlx.page/demo?daexperiment=7211</p>
-          </div>
-        </div>
-        <div>
-          <div><p>experiment-status</p></div>
-          <div><p>active</p></div>
-        </div>
-        <div>
-          <div><p>experiment-type</p></div>
-          <div><p>ab</p></div>
-        </div>
-        <div>
-          <div><p>experiment-goal</p></div>
-          <div><p>conversion</p></div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer></footer>
-</body>
-`, 'text/html').querySelector('main');
-const sections = main.querySelectorAll(':scope > div');
-let row = [];
-sections.forEach((section) => {
-  row.push('|section-start|');
-  [...section.children].forEach((node) => {
-    row.push(node);
-  });
-  row.push('|section-end|');
-});
-console.log(row);
 function createTag(tag, attributes, html, options = {}) {
   const el = document.createElement(tag);
   if (html) {
-    if (html instanceof HTMLElement
-      || html instanceof SVGElement
-      || html instanceof DocumentFragment) {
+    if (
+      html instanceof HTMLElement ||
+      html instanceof SVGElement ||
+      html instanceof DocumentFragment
+    ) {
       el.append(html);
     } else if (Array.isArray(html)) {
       el.append(...html);
@@ -319,16 +29,58 @@ function createTag(tag, attributes, html, options = {}) {
   return el;
 }
 
-row = createTag('div', { class: 'row' });
-
-sections.forEach((section) => {
-  row.append(createTag('div', { class: 'section-start' }, '|section-start|'));
-  [...section.children].forEach((node) => {
-    row.append(createTag('div', { class: 'node-wrapper' }, node));
+function block2Table(block) {
+  const blockName = block.className;
+  let maxColCnt = 1;
+  const rows = [...block.querySelectorAll(':scope > div')].map((rowDiv) => {
+    const row = createTag('tr');
+    const cols = [...rowDiv.querySelectorAll(':scope > div')].map((col) => {
+      const cell = createTag('td');
+      cell.append(col);
+      return cell;
+    });
+    maxColCnt = Math.max(maxColCnt, cols.length);
+    row.append(...cols);
+    return row;
   });
-  row.append(createTag('div', { class: 'section-end' }, '|section-end|'));
-});
-document.body.append(row);
+  const table = createTag('table', { class: 'block-table' });
+  const tableBody = createTag(
+    'tbody',
+    {},
+    createTag('th', { colspan: maxColCnt }, blockName || 'unknown block name'),
+  );
+  tableBody.append(...rows);
+  const colGroup = createTag('colgroup');
+  colGroup.append(...Array.from({ length: maxColCnt }).map(() => createTag('col')));
+  table.append(colGroup, tableBody);
+  return table;
+}
 
+function body2Row({ text, path }) {
+  const body = parseBodyText(text);
+  const main = body.querySelector('main');
+  const sections = main.querySelectorAll(':scope > div');
+  const row = createTag('div', { class: 'row' }, createTag('div', { class: 'path' }, path));
+  sections.forEach((section, i) => {
+    row.append(createTag('div', { class: 'node-wrapper section-start' }, `section-${i + 1}-->`));
+    [...section.children].forEach((node) => {
+      const nodeWrapper = createTag('div', { class: 'node-wrapper' });
+      if (node.tagName === 'DIV') {
+        nodeWrapper.append(block2Table(node));
+      } else {
+        nodeWrapper.append(node);
+      }
+      row.append(nodeWrapper);
+    });
+  });
+  return row;
+}
 
-// dom: row.html
+function main() {
+  const bodies = mockBodies();
+  const rows = bodies.map((body) => body2Row(body));
+
+  document.body.append(...rows);
+}
+
+main();

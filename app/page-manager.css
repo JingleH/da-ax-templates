@@ -1,3 +1,47 @@
 .row {
   display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.row .path {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.node-wrapper {
+  max-width: 300px;
+  flex-shrink: 0;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.section-start {
+  background-color: #b3b3b3;
+  padding: 6px;
+}
+
+p {
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  background: #f1f1f1;
+  font-weight: 700;
+}
+
+table td {
+  border: 2px solid #B1B1B1;
+  vertical-align: top;
+  min-width: 100px;
+  padding: 8px;
+  color: #464646;
+}
+
+img {
+  max-width: 100px;
 }

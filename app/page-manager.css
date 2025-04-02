@@ -1,3 +1,6 @@
+body {
+  font-family: 'adobe-clean', 'Adobe Clean', 'Trebuchet MS', sans-serif;
+}
 .row {
   display: flex;
   gap: 20px;
@@ -5,15 +8,18 @@
 }
 
 .row .path {
-  width: 300px;
+  max-width: 300px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .node-wrapper {
-  max-width: 300px;
+  max-width: 450px;
+  max-height: 300px;
+  overflow: auto;
   flex-shrink: 0;
   text-align: center;
-  overflow-x: auto;
 }
 
 .section-start {

@@ -30,7 +30,7 @@ function createTag(tag, attributes, html, options = {}) {
 }
 
 function block2Table(block) {
-  const blockName = block.className;
+  const [blockName, ...variants] = block.className.split(/\s+/);
   let maxColCnt = 1;
   const rows = [...block.querySelectorAll(':scope > div')].map((rowDiv) => {
     const row = createTag('tr');
@@ -44,10 +44,11 @@ function block2Table(block) {
     return row;
   });
   const table = createTag('table', { class: 'block-table' });
+  const blockTitle = `${blockName}${variants.length ? ` (${variants.join(', ')})` : ''}` || 'unknown';
   const tableBody = createTag(
     'tbody',
     {},
-    createTag('th', { colspan: maxColCnt }, blockName || 'unknown block name'),
+    createTag('th', { colspan: maxColCnt }, blockTitle),
   );
   tableBody.append(...rows);
   const colGroup = createTag('colgroup');
@@ -63,7 +64,7 @@ function body2Row({ text, path }) {
   const editorPath = `https://da.live/edit#${path}`;
   const row = createTag('div', { class: 'row' }, createTag('div', { class: 'path' }, createTag('a', { href: editorPath, class: 'editor-link', target: '_blank' }, path)));
   sections.forEach((section, i) => {
-    row.append(createTag('div', { class: 'node-wrapper section-start' }, `section-${i + 1}-->`));
+    row.append(createTag('div', { class: 'node-wrapper section-start' }, `S${i + 1}=>`));
     [...section.children].forEach((node) => {
       const nodeWrapper = createTag('div', { class: 'node-wrapper' });
       if (node.tagName === 'DIV') {

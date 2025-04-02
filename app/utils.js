@@ -7,7 +7,7 @@ const REPO = 'da-ax-templates';
 const ROOT = `${ORG}/${REPO}`;
 
 function isDir(file) {
-  return !!file.ext;
+  return !file?.ext;
 }
 
 function isDoc(file) {
